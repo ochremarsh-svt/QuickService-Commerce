@@ -1,4 +1,4 @@
-# 🏪 QuickService/Commerce: Smart Pocket Micro-Menu Template Suite
+# QuickService/Commerce: Smart Pocket Micro-Menu Template Suite
 
 [![GitHub Release](https://img.shields.io/badge/Release-v1.0.0-blue?style=flat-square)](https://github.com/QuickService-Commerce)
 [![License](https://img.shields.io/badge/License-Envato%20Standard-orange?style=flat-square)](https://github.com/QuickService-Commerce)
@@ -11,7 +11,7 @@ Built to eliminate the weight and recurring costs of complex backend server arch
 
 ---
 
-## 🗺️ Table of Contents
+## Table of Contents
 
 1. [Product Description & Design Concept](#02-product-description--design-concept)
 2. [Core Functional Architecture](#03-core-functional-architecture)
@@ -24,7 +24,7 @@ Built to eliminate the weight and recurring costs of complex backend server arch
 
 ---
 
-## 🎨 02. Product Description & Design Concept
+## 02. Product Description & Design Concept
 
 Traditional e-commerce architectures demand databases, server runtimes, and recurring maintenance overhead—infrastructure that small-scale, high-velocity food vendors rarely need. 
 
@@ -32,18 +32,18 @@ Traditional e-commerce architectures demand databases, server runtimes, and recu
 
 ---
 
-## ⚙️ 03. Core Functional Architecture
+## 03. Core Functional Architecture
 
 The template suite is engineered purely on modern web standards, showcasing robust capabilities built entirely on a vanilla foundation:
 
-*   ⚡ **Multi-Category Grid Filter:** A real-time Vanilla JavaScript interaction layer allowing instant item filtering by category tags (e.g., *Smash Burgers, Pita Wraps, Plant-Based*) with zero page reloads.
-*   🔀 **Dynamic Single-File Detailed Routing:** Eliminates code bloat entirely. By processing URL Query string matrix arguments (e.g., `item-details.html?id=bb-02`), a single canvas layout dynamically populates text profiles, images, ingredient arrays, and allergen markers from a lightweight local data map.
-*   🧮 **Live Modifier Matrices & Calculations:** Inline event listeners capture custom checkbox selections (such as extra toppings) to seamlessly recalculate subtotal projections and grand totals against active item metrics instantly.
-*   🖨️ **Native Print Engine Integration:** Bypasses third-party app dispatching layers in favor of a direct device-print interface. It automatically cleans screen layouts on trigger, rendering clean, paper-optimized physical invoice sheets.
+*   **Multi-Category Grid Filter:** A real-time Vanilla JavaScript interaction layer allowing instant item filtering by category tags (e.g., *Smash Burgers, Pita Wraps, Plant-Based*) with zero page reloads.
+*   **Dynamic Single-File Detailed Routing:** Eliminates code bloat entirely. By processing URL Query string matrix arguments (e.g., `item-details.html?id=bb-02`), a single canvas layout dynamically populates text profiles, images, ingredient arrays, and allergen markers from a lightweight local data map.
+*   **Live Modifier Matrices & Calculations:** Inline event listeners capture custom checkbox selections (such as extra toppings) to seamlessly recalculate subtotal projections and grand totals against active item metrics instantly.
+*   **Native Print Engine Integration:** Bypasses third-party app dispatching layers in favor of a direct device-print interface. It automatically cleans screen layouts on trigger, rendering clean, paper-optimized physical invoice sheets.
 
 ---
 
-## 📁 04. Detailed File Matrix Manifest
+## 04. Detailed File Matrix Manifest
 
 The suite follows an explicit, strict directory structure separating production assets from documentation:
 
