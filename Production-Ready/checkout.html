@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaryaBites - Official Receipt Summary</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div class="logo-container" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <h1>⬅ Back to<span> Menu</span></h1>
+        </div>
+    </header>
+
+    <main class="checkout-container">
+        <!-- Structural Print-Only Header Block -->
+        <div class="receipt-header-print">
+            <h1>BARYABITES COMMERCE STORE</h1>
+            <p>Digital Checkout Invoice Statement Summary</p>
+            <p id="printReceiptTimestamp"></p>
+            <hr style="margin-top: 1rem; border: none; border-bottom: 2px solid #000;">
+        </div>
+
+        <div class="checkout-card">
+            <h2>Review Digital Order Summary</h2>
+            <hr style="margin: 1rem 0; border: none; border-bottom: 1px solid var(--border-color);">
+
+            <div id="checkoutItemsList"></div>
+
+            <div class="summary-block">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotalValue">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax & System Platform Processing (10%)</span>
+                    <span id="taxValue">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Bill Cost</span>
+                    <span id="totalValue">$0.00</span>
+                </div>
+            </div>
+
+            <button class="btn-checkout-submit" id="btnPrintReceiptAction">Print Official Digital Receipt</button>
+        </div>
+    </main>
+
+    <script src="assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const listContainer = document.getElementById('checkoutItemsList');
+
+            function renderCheckoutView() {
+                const cartItems = window.BaryaCart ? window.BaryaCart.items : [];
+
+                if (cartItems.length === 0) {
+                    listContainer.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 2rem 0;">Your basket cart is completely empty.</p>`;
+                    document.getElementById('subtotalValue').textContent = `$0.00`;
+                    document.getElementById('taxValue').textContent = `$0.00`;
+                    document.getElementById('totalValue').textContent = `$0.00`;
+                    document.getElementById('btnPrintReceiptAction').disabled = true;
+                    return;
+                }
+
+                document.getElementById('btnPrintReceiptAction').disabled = false;
+                let subtotal = 0;
+                listContainer.innerHTML = '';
+
+                cartItems.forEach(item => {
+                    const rowCost = item.price * item.quantity;
+                    subtotal += rowCost;
+
+                    listContainer.innerHTML += `
+                        <div class="cart-item-row" data-id="${item.id}">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <div class="item-controls">
+                                    <button class="btn-qty-adjust decrement-trigger" data-id="${item.id}">-</button>
+                                    <span class="display-qty-lbl">${item.quantity}</span>
+                                    <button class="btn-qty-adjust increment-trigger" data-id="${item.id}">+</button>
+                                    <button class="btn-item-remove remove-trigger" data-id="${item.id}">Remove</button>
+                                </div>
+                            </div>
+                            <span style="font-weight:600; font-size: 1.05rem;">$${rowCost.toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+
+                const tax = subtotal * 0.10;
+                const absoluteTotal = subtotal + tax;
+
+                document.getElementById('subtotalValue').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('taxValue').textContent = `$${tax.toFixed(2)}`;
+                document.getElementById('totalValue').textContent = `$${absoluteTotal.toFixed(2)}`;
+            }
+
+            // Global Interceptor bubbling handlers linking UI triggers back into core state functions
+            listContainer.addEventListener('click', (e) => {
+                if (!window.BaryaCart) return;
+
+                const targetId = e.target.getAttribute('data-id');
+                if (!targetId) return;
+
+                if (e.target.classList.contains('increment-trigger')) {
+                    window.BaryaCart.addItem({ id: targetId, quantity: 1 });
+                    renderCheckoutView();
+                }
+                else if (e.target.classList.contains('decrement-trigger')) {
+                    window.BaryaCart.decrementItem(targetId);
+                    renderCheckoutView();
+                }
+                else if (e.target.classList.contains('remove-trigger')) {
+                    window.BaryaCart.removeItem(targetId);
+                    renderCheckoutView();
+                }
+            });
+
+            // Native hardware window print routing trigger sequence
+            document.getElementById('btnPrintReceiptAction').addEventListener('click', () => {
+                document.getElementById('printReceiptTimestamp').textContent = `Transaction Issued: ${new Date().toLocaleString()}`;
+                window.print();
+            });
+
+            renderCheckoutView();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   BaryaBites - Global Design Tokens & Variables
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --primary: #ff5722;           /* Vibrant food-tech orange */
+    --primary-hover: #e64a19;
+    --secondary: #2e7d32;         /* Fresh organic green */
+    --surface-light: #ffffff;
+    --bg-base: #f4f6f8;
+    --border-color: #e2e8f0;
+    
+    /* Typography Overhaul */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+
+    /* Structural Elevation & Shapes */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    
+    /* Animation Tokens */
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

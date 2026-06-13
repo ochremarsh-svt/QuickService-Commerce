@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaryaBites - Smart Pocket Micro-Menu System</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <div class="logo-container">
+            <h1>Barya<span>Bites</span></h1>
+        </div>
+        <div class="cart-icon-wrapper" onclick="window.location.href='checkout.html'">
+            <span class="icon-badge" id="cartCountBadge">0</span>
+            <button class="btn-icon">🛒</button>
+        </div>
+    </header>
+
+    <section class="filter-section">
+        <div class="filter-tags-container">
+            <button class="filter-btn active" data-target="all">All Items</button>
+            <button class="filter-btn" data-target="burgers">Smash Burgers</button>
+            <button class="filter-btn" data-target="wraps">Pita Wraps</button>
+            <button class="filter-btn" data-target="snacks">Plant-Based</button>
+        </div>
+    </section>
+
+    <main class="menu-grid" id="menuGrid">
+        <div class="menu-card" data-category="burgers" onclick="window.location.href='item-details.html?id=bb-01'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Classic Smash Burger</h3>
+                <p class="description">Crispy smashed double patty, cheddar cheese, secret burger layout sauce.</p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$5.99</span>
+                    <button class="btn-add-cart" data-id="bb-01" data-name="Classic Smash Burger" data-price="5.99">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="wraps" onclick="window.location.href='item-details.html?id=bb-02'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://www.madhuseverydayindian.com/wp-content/uploads/2022/01/falafel-pita-sandwich-recipe-with-vegetables-and-tahini-.jpg') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Dynamic Falafel Pita</h3>
+                <p class="description">Warm loaded pita wrap stuffed with crispy plant falafels and fresh garlic spread.
+                </p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$4.50</span>
+                    <button class="btn-add-cart" data-id="bb-02" data-name="Dynamic Falafel Pita" data-price="4.50">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="snacks" onclick="window.location.href='item-details.html?id=bb-03'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Sweet Potato Fries</h3>
+                <p class="description">Crispy crinkle-cut sweet potatoes tossed heavily in rock salt and rosemary
+                    seasoning.</p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$3.25</span>
+                    <button class="btn-add-cart" data-id="bb-03" data-name="Sweet Potato Fries" data-price="3.25">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="burgers" onclick="window.location.href='item-details.html?id=bb-04'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>BBQ Bacon Blast Smash</h3>
+                <p class="description">Smashed beef patty, crispy bacon strips, smokey hickory glaze, fried onions.</p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$6.75</span>
+                    <button class="btn-add-cart" data-id="bb-04" data-name="BBQ Bacon Blast Smash" data-price="6.75">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="burgers" onclick="window.location.href='item-details.html?id=bb-05'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Spicy Jalapeño Crunch</h3>
+                <p class="description">Double beef patty, pepper jack cheese, house pickled jalapeños, spicy chipotle
+                    aioli.</p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$6.25</span>
+                    <button class="btn-add-cart" data-id="bb-05" data-name="Spicy Jalapeño Crunch" data-price="6.25">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="wraps" onclick="window.location.href='item-details.html?id=bb-06'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Smoked BBQ Tofu Wrap</h3>
+                <p class="description">Crispy pressed organic tofu cubes, sweet slaw, and barbecue essence rolled
+                    tightly.</p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$4.95</span>
+                    <button class="btn-add-cart" data-id="bb-06" data-name="Smoked BBQ Tofu Wrap" data-price="4.95">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="snacks" onclick="window.location.href='item-details.html?id=bb-07'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://fromthelarder.co.uk/wp-content/uploads/2025/11/Potato-Wedges-10.jpg') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Loaded Potato Wedges</h3>
+                <p class="description">Thick potato slices baked golden brown, smothered in vegan melted cheese sauce.
+                </p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$3.99</span>
+                    <button class="btn-add-cart" data-id="bb-07" data-name="Loaded Potato Wedges" data-price="3.99">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="snacks" onclick="window.location.href='item-details.html?id=bb-08'"
+            style="cursor:pointer;">
+            <div class="product-img"
+                style="background: url('https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=500&auto=format&fit=crop') center/cover;">
+            </div>
+            <div class="card-details">
+                <h3>Crispy Onion Rings</h3>
+                <p class="description">Golden breaded sweet white onion rings served alongside a dynamic zesty dip pot.
+                </p>
+                <div class="card-footer" onclick="event.stopPropagation();">
+                    <span class="price">$2.75</span>
+                    <button class="btn-add-cart" data-id="bb-08" data-name="Crispy Onion Rings" data-price="2.75">Add
+                        +</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
