@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaryaBites - Template Documentation Portal</title>
+    <style>
+        /* Modern Documentation Layout Schema */
+        :root {
+            --bg-canvas: #f8fafc;
+            --bg-surface: #ffffff;
+            --primary: #ff4500;
+            --primary-muted: #fff0eb;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --code-bg: #1e293b;
+            --code-text: #f8fcfc;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .doc-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Fixed Navigation Sidebar */
+        .doc-sidebar {
+            background-color: var(--bg-surface);
+            border-right: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .brand-header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .brand-header h1 span {
+            color: var(--primary);
+        }
+
+        .brand-header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.25rem 0 0 0;
+        }
+
+        .doc-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .doc-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .doc-nav a:hover,
+        .doc-nav a.active {
+            background-color: var(--primary-muted);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Content Container Workspace */
+        .doc-content {
+            padding: 3rem 4rem;
+            max-width: 960px;
+            box-sizing: border-box;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 3rem;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            color: #1e293b;
+        }
+
+        p {
+            color: #334155;
+            margin: 0.5rem 0 1.5rem 0;
+        }
+
+        /* Highlights & Callouts */
+        blockquote {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        blockquote p {
+            margin: 0;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* Architectural Structured Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th,
+        td {
+            padding: 0.85rem 1.2rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Clean Technical Code Blocks */
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', Consolas, Monaco, 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            margin: 1.5rem 0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #e2e8f0;
+            color: #0f172a;
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+            font-size: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="doc-layout">
+        <!-- Documentation Sidebar Engine Links Mapping -->
+        <aside class="doc-sidebar">
+            <div class="brand-header">
+                <h1>Barya<span>Bites</span></h1>
+                <p>Template Documentation v1.0.0</p>
+            </div>
+            <nav class="doc-nav" id="docNavbar">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#structure">Folder Structure</a>
+                <a href="#routing">Dynamic Product Routing</a>
+                <a href="#customization">Item Customization</a>
+                <a href="#shopping-cart">Cart Integration Engine</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area Scroll Container Viewport -->
+        <main class="doc-content">
+
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <h2>1. Template Overview</h2>
+                <p>
+                    Welcome to the official <strong>BaryaBites</strong> documentation portal. BaryaBites is a premium,
+                    smart pocket-sized micro-menu web template ideal for small-scale culinary operations, fast food
+                    vendors, or plant-based pop-ups. It features modern performance modules, fluid micro-interactions,
+                    responsive category filtering, and a powerful decoupled shopping cart architecture.
+                </p>
+                <blockquote>
+                    <p>Designed with exceptional focus on responsive constraints, clean UI spacing, and low code
+                        overhead ideal for premium theme asset reviewers.</p>
+                </blockquote>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <!-- Section 2: Folder Structure -->
+            <section id="structure">
+                <h2>2. Folder & File Structure</h2>
+                <p>
+                    The clean layout organizes your system files cleanly to maintain clarity, optimize modular tracking,
+                    and ensure hassle-free marketplace validation.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Path Vector Location</th>
+                            <th>Target Role Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/index.html</code></td>
+                            <td>Primary micro-catalog layout display grid mapping. Container for active multi-category
+                                filtering triggers.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/item-details.html</code></td>
+                            <td>Dynamic routing detail canvas engine. Interprets query string IDs to load product
+                                properties.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/checkout.html</code></td>
+                            <td>Transaction basket summary framework displaying ordered custom line-items, item totals,
+                                and user metrics.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/assets/css/variables.css</code></td>
+                            <td>Global UI root design variables matrix defining theme parameters like primary buttons
+                                and spacing.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/assets/css/style.css</code></td>
+                            <td>Global reset rules, header frameworks, shared button aesthetics, and base structural
+                                token layers.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/assets/js/cart.js</code></td>
+                            <td>State manager tracking application basket actions, calculation matrix updates, and
+                                LocalStorage cache arrays.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <!-- Section 3: Dynamic Routing -->
+            <section id="routing">
+                <h2>3. Dynamic Product Routing Engine</h2>
+                <p>
+                    Rather than forcing developers to copy, paste, and modify multiple physical static files for every
+                    singular menu entry, BaryaBites utilizes an advanced <strong>URL Parameter Router Matrix</strong>.
+                    This ensures clean navigation vectors and eliminates code bloat entirely.
+                </p>
+                <h3>How Card Click Routing Works</h3>
+                <p>
+                    Each card item element in the primary catalog grid utilizes clean inline window navigation
+                    parameters to supply data vectors directly into the detail template layer:
+                </p>
+                <pre><code>&lt;!-- Production Grid Dynamic Card Setup Example --&gt;
+&lt;div class="menu-card" data-category="burgers" onclick="window.location.href='item-details.html?id=bb-02'"&gt;
+    &lt;div class="product-img" style="background: url('assets/img/pita.jpg') center/cover;"&gt;&lt;/div&gt;
+    &lt;div class="card-details"&gt;
+        &lt;h3&gt;Dynamic Falafel Pita&lt;/h3&gt;
+        &lt;div class="card-footer"&gt;
+            &lt;span class="price"&gt;$4.50&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                    When loaded, <code>item-details.html</code> immediately decodes the parameter matrix to display
+                    relevant metadata variables from its embedded local data object lookup framework.
+                </p>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <!-- Section 4: Item Customization -->
+            <section id="customization">
+                <h2>4. Dynamic Price Recalculation</h2>
+                <p>
+                    Inside the layout engine of <code>item-details.html</code>, price and modifier states calculate
+                    customer choices dynamically based on checkbox input interactions. Total costs multiply
+                    transparently alongside real-time quantity state hooks.
+                </p>
+                <pre><code>// Dynamic Recalculation Segment Logic
+function recalculateTotals() {
+    let addonTotal = 0;
+    checkboxes.forEach(box => {
+        if (box.checked) {
+            addonTotal += parseFloat(box.getAttribute('data-addon-price'));
+        }
+    });
+
+    const unitCost = basePrice + addonTotal;
+    const grandTotal = unitCost * currentQuantity;
+
+    priceDisplay.textContent = `$${unitCost.toFixed(2)}`;
+    projectionDisplay.textContent = `$${grandTotal.toFixed(2)}`;
+}</code></pre>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+            <!-- Section 5: Cart Integration -->
+            <section id="shopping-cart">
+                <h2>5. Cart Integration Engine</h2>
+                <p>
+                    The client cart system relies on structured line-item payload data states. When custom variants pass
+                    into your local cart database module, metadata string descriptors assemble flawlessly, preventing
+                    data collisions between distinct modifier configurations.
+                </p>
+                <h3>Structured Payload Sample</h3>
+                <pre><code>{
+    id: "bb-01-custom-1718301213000",
+    name: "Classic Smash Burger (Extra Cheddar Cheese Slice)",
+    price: 7.49,
+    quantity: 2
+}</code></pre>
+                <p>
+                    This schema tracks quantities, modifications, and exact cost records accurately across multiple view
+                    panels throughout the lifetime of the checkout tracking session.
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Interface Navigation Highlighting Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#docNavbar a');
+
+            // Synchronized Section Interceptor Scrolling Handler Loop
+            window.addEventListener('scroll', () => {
+                let activeId = '';
+                sections.forEach(section => {
+                    const topPos = section.offsetTop;
+                    const height = section.clientHeight;
+                    if (window.scrollY >= (topPos - 120)) {
+                        activeId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Fluid Scroll Target Interceptor Setup
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 40,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
